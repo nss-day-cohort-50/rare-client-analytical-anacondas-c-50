@@ -1,6 +1,9 @@
-import React from "react"
-import { Route } from "react-router-dom"
+import React from "react";
+import { Route } from "react-router-dom";
+import { Tags } from "./UserViews/tags.js";
+import { Categories } from "./UserViews/categories.js";
 import { Posts } from "./posts/post"
+
 
 export const ApplicationViews = () => {
     return <>
@@ -8,9 +11,17 @@ export const ApplicationViews = () => {
             margin: "5rem 2rem",
             lineHeight: "1.75rem"
         }}>
-        <Route path= "/posts">
-            <Posts />
-        </Route>
+
+            <Route path="/tags">
+                <Tags />
+            </Route>
+            <Route path="/categories">
+                <Categories />
+            </Route>
+            <Route path= "/posts">
+                <Posts />
+            </Route>
+
         </main>
     </>
 }
