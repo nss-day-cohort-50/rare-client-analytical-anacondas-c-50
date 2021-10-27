@@ -17,6 +17,10 @@ export const NavBar = () => {
             {
                 (localStorage.getItem("rare_user_id") !== null) ?
                     <li className="nav-item">
+                        <Link className="nav-link"><button>All Posts</button></Link>
+                        <Link className="nav-link"><button>My Posts</button></Link>
+                        <Link className="nav-link" to="/categories"><button>Category Manager</button></Link>
+                        <Link className="nav-link" to="/tags"><button>Tag Manager</button></Link>
                         <button className="nav-link fakeLink"
                             onClick={() => {
                                 localStorage.removeItem("rare_user_id")
