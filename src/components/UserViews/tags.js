@@ -1,6 +1,4 @@
 import React from "react"
- 
-
 import "./tags.css"
 
 export const Tags = () => {
