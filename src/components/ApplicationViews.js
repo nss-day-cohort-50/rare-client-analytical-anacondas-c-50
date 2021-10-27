@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { Tags } from "./UserViews/tags.js";
 import { Categories } from "./UserViews/categories.js";
-import { Posts } from "./posts/post"
+import { Posts } from "./UserViews/posts/post.js";
 
 
 export const ApplicationViews = () => {
