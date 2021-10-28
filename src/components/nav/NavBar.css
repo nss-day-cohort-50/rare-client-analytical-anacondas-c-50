@@ -2,13 +2,24 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
-}
+    justify-content: space-evenly;
+    
+}   
 
 .navbar__item {
-    flex-basis: 20%;
+    
     list-style-type: none;
+    justify-content: space-around;
 }
 
 .navbar__logo {
     max-height: 6rem;
+}
+
+.nav-item {
+   display: block;
+}
+
+.nav-link {
+    padding: 3%;
 }
