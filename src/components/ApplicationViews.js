@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { Tags } from "./UserViews/tags.js";
 import { Categories } from "./UserViews/categories.js";
 import { Posts } from "./UserViews/posts/post"
+import { MyPosts } from "./UserViews/posts/myPosts.js";
 
 
 export const ApplicationViews = () => {
@@ -20,6 +21,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route path= "/posts">
                 <Posts />
+            </Route>
+            <Route path= "/myPosts">
+                <MyPosts />
             </Route>
 
         </main>
