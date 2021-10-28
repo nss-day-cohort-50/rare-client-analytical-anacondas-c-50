@@ -14,10 +14,18 @@ export const getAllCategories = () => {
         .then(res => res.json())
 }
 
-// export const setNewCategory = () => {
-//     return fetch("http://localhost:8088/categories", {
-//         method: "POST" })
-//         .then(res => res.json())
-//         .then(data => setCategoryId(data.id));
-// }
+
+export const createCategory = () => {
+    
+    const fetchOption = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    return fetch("http://localhost:8088/categories", fetchOption)
+        .then(res => res.json())
+}
+
+
 

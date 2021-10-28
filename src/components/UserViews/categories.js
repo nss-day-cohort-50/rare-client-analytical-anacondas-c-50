@@ -2,7 +2,7 @@ import React from "react"
 import { useEffect, useState } from "react"
 import { Route } from "react-router-dom"
 import "./categories.css"
-import { getAllCategories } from "../ApiManager"
+import { getAllCategories, createCategory } from "../ApiManager"
 
 
 export const Categories = () => {
@@ -26,7 +26,7 @@ export const Categories = () => {
                 })}</div>
             <div className="catBox newCat"><h3>Create New Category</h3>
                 <div>
-                </div><input type="text" placeholder="A cool new category..."></input><button>Submit</button></div>
+                </div><input type="text" placeholder="A cool new category..."></input><button onClick={createCategory}>Submit</button></div>
 
         </>
     )
