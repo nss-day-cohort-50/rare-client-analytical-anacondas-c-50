@@ -29,16 +29,18 @@ export const getAllCategories = () => {
 }
 
 
-export const createCategory = () => {
-    
-    const fetchOption = {
+export const createCategory = (label) => {
+    return fetch("http://localhost:8088/categories", {
         method: "POST",
+        body: JSON.stringify({
+            label: label
+        }),
         headers: {
             "Content-Type": "application/json"
-        }
-    }
-    return fetch("http://localhost:8088/categories", fetchOption)
-        .then(res => res.json())
+        },
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
 }
 
 
