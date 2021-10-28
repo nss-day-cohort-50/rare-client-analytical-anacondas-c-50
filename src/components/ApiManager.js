@@ -3,11 +3,25 @@ export const getAllPosts = () => {
         .then(res => res.json())
 }
 
-
 export const getAllTags = () => {
     return fetch("http://localhost:8088/tags")
         .then(res => res.json())
 }
+
+export const setNewTags = (label) => {
+    return fetch("http://localhost:8088/tags", {
+        method: "POST",
+        body: JSON.stringify({
+            label: label
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        },
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+}
+
 
 export const getAllCategories = () => {
     return fetch("http://localhost:8088/categories")

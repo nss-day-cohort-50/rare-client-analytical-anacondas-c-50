@@ -1,10 +1,12 @@
 import React from "react"
 import "./tags.css"
 import { getAllTags } from "../ApiManager.js"
+import { setNewTags } from "../ApiManager.js";
 import { useState, useEffect } from 'react'
 
 export const Tags = () => {
     const [tags, setTags] = useState([])
+    const [newTag, setCreateTags] = useState([])
 
     useEffect(
         () => {
@@ -15,6 +17,16 @@ export const Tags = () => {
         },
         []
     )
+    
+    
+
+    const submitNewTag = (e) => {
+        e.preventDefault()
+
+        return setNewTags(newTag)
+        }
+        
+    
 
     return (
         <>
@@ -27,7 +39,7 @@ export const Tags = () => {
 
         <div className="tagBox newTag"><h3>Create New Tag</h3>
         <div>
-            </div><input type="text" placeholder="A cool new tag..."></input><button>Submit</button></div>
+            </div><input type="text" placeholder="A cool new tag..." onChange={evt => setCreateTags(evt.target.value)}></input><button onClick={submitNewTag}>Submit</button></div>
             
         </>
     )
