@@ -5,16 +5,17 @@ import { getMyPosts } from "../../ApiManager"
 
 export const MyPosts = () => {
     const [posts, setPosts] = useState([])
-    const userId = parseInt(localStorage.getItem("rare_user_id"))
+    let userId = parseInt(localStorage.getItem("rare_user_id"))
 
     useEffect(
         () => {
-                getMyPosts()
+                getMyPosts(userId)
                 .then((data) => {
                     setPosts(data)
+                    
                 })
         },
-        [userId]
+        []
     )
 
     return (
@@ -28,6 +29,7 @@ export const MyPosts = () => {
                 {
                     posts.map(
                         (post) => {
+                            
                             return<h3 className="cards">
 
                                 { 

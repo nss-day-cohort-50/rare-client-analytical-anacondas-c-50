@@ -35,8 +35,8 @@ export const getAllCategories = () => {
 //         .then(data => setCategoryId(data.id));
 // }
 
-export const getMyPosts = () => {
-    return fetch("http://localhost:8088/posts?userId=${userId}&_expand=user")
+export const getMyPosts = (user_Id) => {
+    return fetch(`http://localhost:8088/posts?userId=${user_Id}`)
         .then(res => res.json())
 }
 
