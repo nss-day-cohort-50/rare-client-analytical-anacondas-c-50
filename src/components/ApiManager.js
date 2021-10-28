@@ -45,3 +45,13 @@ export const createCategory = (label) => {
 
 
 
+export const getMyPosts = (user_Id) => {
+    return fetch(`http://localhost:8088/posts?userId=${user_Id}`)
+        .then(res => res.json())
+}
+
+
+
+
+
+
