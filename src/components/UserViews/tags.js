@@ -1,13 +1,25 @@
 import React from "react"
 import "./tags.css"
+import { getAllTags } from "../ApiManager.js"
 
 export const Tags = () => {
-    
+    const [tags,setTags] = useState([])
 
+    useEffect(
+        () => {
+                getAllTags()
+                .then((data) => {
+                    setTags(data)
+                })
+        },
+        []
+    )
     return (
         <>
         <div><h1 className="header">Tags</h1>
-        <div className="tagList"><ul><li className="tag">Cool Tags Bro</li></ul></div></div>
+        {tags.map((tag) => {
+            return
+        <div className="tagList"><ul><li className="tag">{tag.label}</li></ul></div>})}</div>
 
         <div className="tagBox newTag"><h3>Create New Tag</h3>
         <div>
