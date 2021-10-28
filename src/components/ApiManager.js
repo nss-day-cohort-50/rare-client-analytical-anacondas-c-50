@@ -14,6 +14,6 @@ export const getAllPosts = () => {
 
 
 export const getMyPosts = () => {
-    return fetch("http://localhost:8088/posts/${userId}")
+    return fetch("http://localhost:8088/posts?userId=${userId}&_expand=user")
         .then(res => res.json())
 }
