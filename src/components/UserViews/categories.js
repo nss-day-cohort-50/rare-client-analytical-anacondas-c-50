@@ -23,6 +23,9 @@ export const Categories = () => {
         e.preventDefault()
 
         return createCategory(newCat)
+        .then(() => {
+            window.location.reload();
+        })
     }
 
     return (
