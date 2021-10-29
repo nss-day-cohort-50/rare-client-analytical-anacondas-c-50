@@ -16,7 +16,6 @@ export const NavBar = () => {
                 (localStorage.getItem("rare_user_id") !== null) ?
                     <li className="nav-item">
                         
-                        <Link className="navbar__link" to="/posts"><button>Posts</button></Link>
                         <Link className="nav-link" to= "/posts"><button>All Posts</button></Link>
                         <Link className="nav-link" to="/myPosts"><button>My Posts</button></Link>
                         <Link className="nav-link" to="/categories"><button>Category Manager</button></Link>

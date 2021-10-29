@@ -19,10 +19,7 @@ export const ApplicationViews = () => {
             <Route path="/categories">
                 <Categories />
             </Route>
-            <Route path= "/posts">
-                <Posts />
-            </Route>
-            <Route path= "/allPosts">
+            <Route path= "/Posts">
                 <Posts />
             </Route>
             <Route path= "/myPosts">
