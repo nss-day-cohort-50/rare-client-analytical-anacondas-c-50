@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import React from "react"
 import { getAllPosts } from "../../ApiManager"
+import { Link} from "react-router-dom"
+
 
 export const Posts = () => {
     const [posts, setPosts] = useState([])
@@ -19,7 +21,7 @@ export const Posts = () => {
         <>
             <h3>All Posts</h3>
                 <div className="posts__header">
-
+                <Link className="nav-link" to="/createpost"><button>Create Post</button></Link>
                 </div>
                 
                 {
