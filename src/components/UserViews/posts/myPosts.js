@@ -33,7 +33,7 @@ export const MyPosts = () => {
                             return<h3 className="cards">
 
                                 { 
-                                (post.user.id === userId)  
+                                (post.user_id === userId)  
                                 ?
                                 <ul className="posts" key={`post--${post.id}-${Math.random()}`}>
                                 <ul className="post_name" >{post.user_id}</ul>
@@ -42,7 +42,7 @@ export const MyPosts = () => {
                                 <ul className="post_date" >{post.publication_date}</ul>
                                 <ul className="post_content" >{post.content}</ul>
                                 </ul>
-                                : null
+                                : <div>Hello</div>
                                 }
                             </h3>
                         }
