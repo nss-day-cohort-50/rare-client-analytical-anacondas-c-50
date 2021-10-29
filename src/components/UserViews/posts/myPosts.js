@@ -12,7 +12,7 @@ export const MyPosts = () => {
                 getMyPosts(userId)
                 .then((data) => {
                     setPosts(data)
-                    
+                   debugger 
                 })
         },
         []
