@@ -3,6 +3,20 @@ export const getAllPosts = () => {
         .then(res => res.json())
 }
 
+export const createPost = (post) => {
+    return fetch(`http://localhost:8088/posts`, {
+        method: "POST",
+        body: JSON.stringify(
+            post
+        ),
+        headers: {
+            "Content-Type": "application/json"
+        },
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+}
+
 export const getAllTags = () => {
     return fetch("http://localhost:8088/tags")
         .then(res => res.json())

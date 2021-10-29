@@ -4,7 +4,7 @@ import { Tags } from "./UserViews/tags.js";
 import { Categories } from "./UserViews/categories.js";
 import { Posts } from "./UserViews/posts/post"
 import { MyPosts } from "./UserViews/posts/myPosts.js";
-
+import { NewPost } from "./UserViews/posts/createpost.js";
 
 export const ApplicationViews = () => {
     return <>
@@ -22,8 +22,14 @@ export const ApplicationViews = () => {
             <Route path= "/posts">
                 <Posts />
             </Route>
+            <Route path= "/allPosts">
+                <Posts />
+            </Route>
             <Route path= "/myPosts">
                 <MyPosts />
+            </Route>
+            <Route path= "/createpost">
+                <NewPost />
             </Route>
 
         </main>
