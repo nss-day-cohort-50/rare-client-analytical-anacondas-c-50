@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import React from "react"
-import { getAllPosts } from "../../ApiManager"
-import { Link} from "react-router-dom"
-
+import { deletePost, getAllPosts } from "../../ApiManager"
+import { Link, useHistory} from "react-router-dom"
 
 export const Posts = () => {
     const [posts, setPosts] = useState([])
+    const history = useHistory()
 
     useEffect(
         () => {
@@ -34,6 +34,7 @@ export const Posts = () => {
                                 <ul className="post_title" >{post.title}</ul>
                                 <ul className="post_date" >{post.publication_date}</ul>
                                 <ul className="post_content" >{post.content}</ul>
+                                <button onClick={() => deletePost(post.id).then(() => history.push("/posts"))} >Delete Post</button>
                                 </ul>
                             </h3>
                         }
