@@ -17,6 +17,13 @@ export const createPost = (post) => {
         .then(json => console.log(json))
 }
 
+export const deletePost = (id) => {
+    return fetch(`http://localhost:8088/posts/${id}`, {
+        method: "DELETE"
+    })
+        .then(getAllPosts)
+}
+
 export const getAllTags = () => {
     return fetch("http://localhost:8088/tags")
         .then(res => res.json())
