@@ -2,6 +2,7 @@ import React from "react"
 import "./tags.css"
 import { getAllTags } from "../ApiManager.js"
 import { setNewTags } from "../ApiManager.js";
+import { deleteTags } from "../ApiManager.js";
 import { useState, useEffect } from 'react'
 // import { useHistory } from "react-router";
 
@@ -26,11 +27,18 @@ export const Tags = () => {
 
         return setNewTags(newTag)
         .then(() => {
-            return tags
+            window.location.reload(false)
         })
     }
         
-        
+    const deleteTag = (e) => {
+        e.preventDefault()
+
+        return deleteTags()
+        .then(() => {
+            window.location.reload(false)
+        })
+    }    
     
 
     return (
@@ -39,7 +47,7 @@ export const Tags = () => {
         {tags.map(
             (tag) => {
             return (
-                <div className="tagList"><ul><li className="tag">{tag.label}</li></ul></div>)})}
+                <div className="tagList"><ul><li className="tag">{tag.label}<button className="delete" onClick={deleteTag}>Delete</button></li></ul></div>)})}
                 </div>
 
         <div className="tagBox newTag"><h3>Create New Tag</h3>
