@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import React from "react"
 import { getAllPosts } from "../../ApiManager"
 import { Link} from "react-router-dom"
+import { createComment } from "../../ApiManager"
+import { getAllComments } from "../../ApiManager"
 
 
 export const Posts = () => {
@@ -35,6 +37,7 @@ export const Posts = () => {
                                 <ul className="post_date" >{post.publication_date}</ul>
                                 <ul className="post_content" >{post.content}</ul>
                                 </ul>
+                                <div className="comment" ><input type="text" placeholder="Neat post!"></input><button>Comment</button></div>
                             </h3>
                         }
                     
