@@ -37,18 +37,10 @@ export const setNewTags = (label) => {
         
 }
 
-export const deleteTags = () => {
-    return fetch("http://localhost:8088/tags", {
+export const deleteTags = (id) => {
+    return fetch(`http://localhost:8088/tags{id}`, {
         method: "DELETE",
-        body: JSON.stringify({
-            
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        },
-    })
-        .then(response => response.json())
-        .then(json => console.log(json))
+})
 }
 
 

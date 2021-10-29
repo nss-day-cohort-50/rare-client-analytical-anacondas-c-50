@@ -26,18 +26,14 @@ export const Tags = () => {
         e.preventDefault()
 
         return setNewTags(newTag)
-        .then((tags) => {
-            setTags(tags)
-        })
+        
     }
         
-    const deleteTag = (e) => {
-        e.preventDefault()
+    const deleteTag = (id) => {
+      
 
         return deleteTags()
-        .then(() => {
-            window.location.reload(false)
-        })
+        
     }    
     
 
@@ -47,7 +43,8 @@ export const Tags = () => {
         {tags.map(
             (tag) => {
             return (
-                <div className="tagList"><ul><li className="tag">{tag.label}<button className="delete" onClick={deleteTag}>Delete</button></li></ul></div>)})}
+                <div className="tagList"><ul><li className="tag">{tag.label}<button className="delete" onClick={() => {
+                    deleteTag(tag.id)}}>Delete</button></li></ul></div>)})}
                 </div>
 
         <div className="tagBox newTag"><h3>Create New Tag</h3>
