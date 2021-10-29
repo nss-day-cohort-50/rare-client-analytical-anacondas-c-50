@@ -26,8 +26,8 @@ export const Tags = () => {
         e.preventDefault()
 
         return setNewTags(newTag)
-        .then(() => {
-            window.location.reload(false)
+        .then((tags) => {
+            setTags(tags)
         })
     }
         
