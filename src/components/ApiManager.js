@@ -52,7 +52,11 @@ export const deleteTags = (id) => {
 
 
 export const getAllCategories = () => {
-    return fetch("http://localhost:8000/categories")
+    return fetch("http://localhost:8000/categories", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+        }
+    })
         .then(res => res.json())
 }
 
