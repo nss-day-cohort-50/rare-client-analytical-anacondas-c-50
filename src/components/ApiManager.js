@@ -25,7 +25,11 @@ export const deletePost = (id) => {
 }
 
 export const getAllTags = () => {
-    return fetch("http://localhost:8000/tags")
+    return fetch("http://localhost:8000/tags", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+        }
+    })
         .then(res => res.json())
 }
 
@@ -36,7 +40,8 @@ export const setNewTags = (label) => {
             label: label
         }),
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
         },
     })
         .then(response => response.json())
