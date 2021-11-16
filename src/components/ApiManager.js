@@ -1,10 +1,10 @@
 export const getAllPosts = () => {
-    return fetch("http://localhost:8088/posts")
+    return fetch("http://localhost:8000/posts")
         .then(res => res.json())
 }
 
 export const createPost = (post) => {
-    return fetch(`http://localhost:8088/posts`, {
+    return fetch(`http://localhost:8000/posts`, {
         method: "POST",
         body: JSON.stringify(
             post
@@ -18,19 +18,19 @@ export const createPost = (post) => {
 }
 
 export const deletePost = (id) => {
-    return fetch(`http://localhost:8088/posts/${id}`, {
+    return fetch(`http://localhost:8000/posts/${id}`, {
         method: "DELETE"
     })
         .then(getAllPosts)
 }
 
 export const getAllTags = () => {
-    return fetch("http://localhost:8088/tags")
+    return fetch("http://localhost:8000/tags")
         .then(res => res.json())
 }
 
 export const setNewTags = (label) => {
-    return fetch("http://localhost:8088/tags", {
+    return fetch("http://localhost:8000/tags", {
         method: "POST",
         body: JSON.stringify({
             label: label
@@ -45,20 +45,20 @@ export const setNewTags = (label) => {
 }
 
 export const deleteTags = (id) => {
-    return fetch(`http://localhost:8088/tags{id}`, {
+    return fetch(`http://localhost:8000/tags{id}`, {
         method: "DELETE",
 })
 }
 
 
 export const getAllCategories = () => {
-    return fetch("http://localhost:8088/categories")
+    return fetch("http://localhost:8000/categories")
         .then(res => res.json())
 }
 
 
 export const createCategory = (label) => {
-    return fetch("http://localhost:8088/categories", {
+    return fetch("http://localhost:8000/categories", {
         method: "POST",
         body: JSON.stringify({
             label: label
@@ -74,12 +74,12 @@ export const createCategory = (label) => {
 
 
 export const getMyPosts = (user_Id) => {
-    return fetch(`http://localhost:8088/posts?userId=${user_Id}`)
+    return fetch(`http://localhost:8000/posts?userId=${user_Id}`)
         .then(res => res.json())
 }
 
 export const createComment = (comment) => {
-    return fetch("http://localhost:8088/comments", {
+    return fetch("http://localhost:8000/comments", {
         method: "POST",
         body: JSON.stringify({
             comment
@@ -93,7 +93,7 @@ export const createComment = (comment) => {
 }
 
 export const getAllComments = () => {
-    return fetch("http://localhost:8088/comments")
+    return fetch("http://localhost:8000/comments")
         .then(res => res.json())
 }
 
