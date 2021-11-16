@@ -68,7 +68,8 @@ export const createCategory = (label) => {
             label: label
         }),
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
         },
     })
         .then(response => response.json())
