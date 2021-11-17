@@ -27,6 +27,7 @@ export const Categories = () => {
             window.location.reload();
         })
     }
+    
 
     return (
         <>
