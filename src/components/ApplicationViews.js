@@ -28,6 +28,7 @@ export const ApplicationViews = () => {
             <Route path= "/createpost">
                 <NewPost />
             </Route>
+            
 
         </main>
     </>

@@ -20,7 +20,7 @@ export const MyPosts = () => {
     return (
         <>
         <h3>My Posts</h3>
-        {/* <Link className="nav-link" to="/myPosts"><button>Add Post</button></Link> */}
+        <Link className="nav-link" to="/createPost"><button>Add Post</button></Link>
                 <div className="posts__header">
 
                 </div>
@@ -32,11 +32,11 @@ export const MyPosts = () => {
                             return<h3 className="cards">
 
                                 { 
-                                (post.user_id === userId)  
+                                (post.userId === userId.id)  
                                 ?
                                 <ul className="posts" key={`post--${post.id}-${Math.random()}`}>
-                                <ul className="post_name" >{post.user_id}</ul>
-                                <ul className="post_category" >{post.category_id}</ul>
+                                <ul className="post_name" >{post.user.id}</ul>
+                                <ul className="post_category" >{post.category}</ul>
                                 <ul className="post_title" >{post.title}</ul>
                                 <ul className="post_date" >{post.publication_date}</ul>
                                 <ul className="post_content" >{post.content}</ul>

@@ -88,9 +88,15 @@ export const createCategory = (label) => {
 
 
 
-export const getMyPosts = (user_Id) => {
-    return fetch(`http://localhost:8000/posts?userId=${user_Id}`)
-        .then(res => res.json())
+export const getMyPosts = () => {
+    return fetch(`http://localhost:8000/posts/myPosts`, {
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+    },
+})
+    .then(response => response.json())
+  
 }
 
 export const createComment = (comment) => {
