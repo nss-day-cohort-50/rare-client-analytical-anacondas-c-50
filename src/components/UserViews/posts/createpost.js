@@ -1,22 +1,34 @@
 import React from "react"
 import { useEffect, useState } from "react"
-import {createPost, getAllPosts} from "../../ApiManager"
+import { createPost, getAllPosts, getAllCategories } from "../../ApiManager"
 
 
 export const NewPost = () => {
+    const [categories, setCategory] = useState([])
     const [post, setPosts] = useState({
-        title:"", 
-        publication_date:"",
-        content:"",
-        category_id: "",
+        title: "",
+        publicationDate: "",
+        content: "",
+        categoryId: "",
+        imageUrl: "",
+        approved: true
     })
 
     const handleControlledInputChange = (event) => {
-        const newPost = Object.assign({}, post)          
-        newPost[event.target.name] = event.target.value   
-        setPosts(newPost)                                
+        const newPost = Object.assign({}, post)
+        newPost[event.target.name] = event.target.value
+        setPosts(newPost)
     }
 
+    useEffect(
+        () => {
+            getAllCategories()
+                .then((data) => {
+                    setCategory(data)
+                })
+        },
+        []
+    )
     useEffect(
         () => {
             getAllPosts()
@@ -30,11 +42,13 @@ export const NewPost = () => {
     const createNewPost = (e) => {
         e.preventDefault()
         const postContent = {
-            user_id: parseInt(localStorage.getItem("rare_user_id")),
+            user: parseInt(localStorage.getItem("rare_user_id")),
             title: post.title,
-            publication_date: post.publication_date,
+            publicationDate: post.publication_date,
             content: post.content,
-            category_id: post.category_id
+            categoryId: post.categoryId,
+            imageUrl: "",
+            approved: true
         }
 
         return createPost(postContent)
@@ -43,11 +57,16 @@ export const NewPost = () => {
     return (
         <>
             <div className="inputBox"><h3>Create New Post</h3></div>
-                <div><input type="text" name="title" placeholder="A cool title here!" value={post.title} onChange={handleControlledInputChange}></input></div>
-                <div><input type="date" name="publication_date" value={post.publication_date} onChange={handleControlledInputChange}></input></div>
-                <div><input type="text" name="content" placeholder="A cool content here!" value={post.content} onChange={handleControlledInputChange}></input></div>
-                <div><input type="text" name="category_id" placeholder="A cool category_id here!" value={post.category_id} onChange={handleControlledInputChange}></input></div>
-                <button onClick={createNewPost}>Save</button>
+            <div><input type="text" name="title" placeholder="A cool title here!" value={post.title} onChange={handleControlledInputChange}></input></div>
+            <div><input type="date" name="publication_date" value={post.publication_date} onChange={handleControlledInputChange}></input></div>
+            <div><input type="text" name="content" placeholder="A cool content here!" value={post.content} onChange={handleControlledInputChange}></input></div>
+            <div><select name="categoryId" value={post.categoryId} onChange={(event) => handleControlledInputChange(event)}>
+                <option value="0">Category</option>
+                {
+                    categories.map(category => <option value={category.id}>{category.label}</option>)
+                }
+            </select></div>
+            <button onClick={createNewPost}>Save</button>
         </>
     )
 }
